@@ -146,8 +146,8 @@ LeetCode 141
 ```
 functionhasCycle(head) {
 
-letslow=head;
-letfast=head;
+lets low=head;
+let fast=head;
 
 while (fast&&fast.next) {
 
@@ -156,11 +156,11 @@ slow=slow.next;
 fast=fast.next.next;
 
 if (slow===fast) {
-returntrue;
+return true;
         }
     }
 
-returnfalse;
+return false;
 }
 ```
 
@@ -227,10 +227,10 @@ Cycle Start
 Code
 
 ```
-functiondetectCycle(head) {
+function detectCycle(head) {
 
-letslow=head;
-letfast=head;
+let slow=head;
+let fast=head;
 
 while (fast&&fast.next) {
 
@@ -239,8 +239,8 @@ fast=fast.next.next;
 
 if (slow===fast) {
 
-letp1=head;
-letp2=slow;
+let p1=head;
+let p2=slow;
 
 while (p1!==p2) {
 
@@ -248,11 +248,11 @@ p1=p1.next;
 p2=p2.next;
             }
 
-returnp1;
+return p1;
         }
     }
 
-returnnull;
+return null;
 }
 ```
 
@@ -331,10 +331,10 @@ Middle
 Code
 
 ```
-functionmiddleNode(head) {
+function middleNode(head) {
 
-letslow=head;
-letfast=head;
+let slow=head;
+let fast=head;
 
 while (fast&&fast.next) {
 
@@ -342,7 +342,7 @@ slow=slow.next;
 fast=fast.next.next;
     }
 
-returnslow;
+return slow;
 }
 ```
 
