@@ -144,9 +144,9 @@ Fast & Slow Pointer
 LeetCode 141
 
 ```
-functionhasCycle(head) {
+function hasCycle(head) {
 
-lets low=head;
+let slow=head;
 let fast=head;
 
 while (fast&&fast.next) {
