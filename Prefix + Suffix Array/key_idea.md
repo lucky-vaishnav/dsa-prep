@@ -355,7 +355,7 @@ If YES → Prefix/Suffix pattern.
 
 **Easy**
 
-- 303. Range Sum Query - Immutable
+- 303 Range Sum Query - Immutable
 - 1480. Running Sum of 1d Array
 - 724. Find Pivot Index
 
