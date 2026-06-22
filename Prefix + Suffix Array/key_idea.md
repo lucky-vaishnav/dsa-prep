@@ -356,21 +356,21 @@ If YES → Prefix/Suffix pattern.
 **Easy**
 
 - 303 Range Sum Query - Immutable
-- 1480. Running Sum of 1d Array
-- 724. Find Pivot Index
+- 1480 Running Sum of 1d Array
+- 724 Find Pivot Index
 
 **Medium (Must Do)**
 
-- 238. Product of Array Except Self ⭐
-- 42. Trapping Rain Water ⭐
-- 560. Subarray Sum Equals K (prefix + hashmap)
-- 974. Subarray Sums Divisible by K
+- 238 Product of Array Except Self ⭐
+- 42 Trapping Rain Water ⭐
+- 560 Subarray Sum Equals K (prefix + hashmap)
+- 974 Subarray Sums Divisible by K
 
 **Advanced**
 
-- 1524. Number of Sub-arrays With Odd Sum
-- 2483. Minimum Penalty for a Shop
-- 2017. Grid Game
+- 1524 Number of Sub-arrays With Odd Sum
+- 2483 Minimum Penalty for a Shop
+- 2017 Grid Game
 
 ### 10. Interview Cheat Sheet
 
