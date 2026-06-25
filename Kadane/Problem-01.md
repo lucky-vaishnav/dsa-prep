@@ -38,7 +38,7 @@ Space Complexity:
 ```
 
 ### My Answer
-
+```
 Pattern: Kadane Algo 
 Why: maximum possible sum of a contiguous subarray , window size need to be decided if take next element or start new window
 Brute Force Complexity: O(n^2) 
@@ -47,7 +47,7 @@ When do we continue current subarray? till sum is increasing
 When do we start a new subarray? when sum decreases on taking next element and next element is grater than that sum 
 Time Complexity: O(n) 
 Space Complexity:O(1)
-
+```
 ### Response
 
 ### Pattern
