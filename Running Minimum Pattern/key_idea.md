@@ -61,7 +61,7 @@ Should I remember the minimum price seen so far?
 ```
 
 ### My Answer -
-
+```
 Pattern:  Array traverse 
 Why:  just need to traverse array 
 Brute Force Complexity: 0(n^2) 
@@ -69,7 +69,7 @@ Optimal Data Structure:  N/A
 Optimal Approach:  Array traverse and keep minimum values and keep calculating profit using minimum values and get max profit 
 Time Complexity: 0(n) 
 Space Complexity: 0(1)
-
+```
 ### Review
 
 call it:
