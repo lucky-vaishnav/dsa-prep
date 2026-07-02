@@ -8,6 +8,8 @@ A **peak element** is an element that is **greater than its neighbors**.
 
 Return **the index of any peak element**.
 
+**"any peak values can be if element greater nearby element?"**
+
 Example:
 
 ```
