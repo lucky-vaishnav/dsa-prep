@@ -304,44 +304,38 @@ because front is always maximum.
 
 # Code
 
-```
-functionmaxSlidingWindow(nums,k) {
+```jsx
+function maxSlidingWindow(nums, k) {
+  const deque = [];
+  const result = [];
 
-constdeque= [];
-constresult= [];
-
-for (letright=0;right<nums.length;right++) {
-
-// Remove indices outside current window
-while (deque.length&&deque[0]<=right-k) {
-deque.shift();
-        }
-
-// Maintain decreasing order
-while (
-deque.length&&
-nums[right]>=nums[deque[deque.length-1]]
-        ) {
-deque.pop();
-        }
-
-// Add current index
-deque.push(right);
-
-// Store answer once first window is complete
-if (right>=k-1) {
-result.push(nums[deque[0]]);
-        }
+  for (let right = 0; right < nums.length; right++) {
+    // Remove indices outside current window
+    while (deque.length && deque[0] <= right - k) {
+      deque.shift();
     }
 
-returnresult;
+    // Maintain decreasing order
+    while (deque.length && nums[right] >= nums[deque[deque.length - 1]]) {
+      deque.pop();
+    }
+
+    // Add current index
+    deque.push(right);
+
+    // Store answer once first window is complete
+    if (right >= k - 1) {
+      result.push(nums[deque[0]]);
+    }
+  }
+
+  return result;
 }
 
-console.log(maxSlidingWindow([1,3,-1,-3,5,3,6,7],3));
+console.log(maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3));
 ```
 
 Output
-
 ```
 [3,3,5,5,6,7]
 ```
