@@ -305,6 +305,12 @@ because front is always maximum.
 # Code
 
 ```jsx
+/* The whole algorithm in one sentence
+   1. Remove expired indices from the front. - first while loop in code
+   2. Remove smaller elements from the back.- second while loop in code
+   3. Add the current index.- .push
+   4. If the first window is complete, the front is the maximum. - if(i>=k-1) ,It will always be executed once i reaches 2. Need to calculate max for that window        on each  i++ which makes a new window.
+*/
 function maxSlidingWindow(nums, k) {
   const deque = [];
   const result = [];
