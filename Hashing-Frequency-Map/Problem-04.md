@@ -243,7 +243,167 @@ I think you're now at the stage where, when you see a problem involving **freque
 
 That's a strong problem-solving habit to build.
 
-Here are the **three most common approaches**.
+### Also this problem also may have duplicate element with same count/frequency so that why we are using array of array in bucket sort right ?
+
+**Exactly!** 🎯 That's one of the main reasons.
+
+Let's see why.
+
+Suppose:
+
+```
+nums = [1,1,2,2,3,3,4]
+```
+
+Frequency map becomes:
+
+```
+1 -> 2
+2 -> 2
+3 -> 2
+4 -> 1
+```
+
+Now build the bucket:
+
+```
+bucket[0] = []
+bucket[1] = [4]
+bucket[2] = [1,2,3]
+bucket[3] = []
+...
+```
+
+Notice this:
+
+```
+Frequency = 2
+
+1
+2
+3
+```
+
+All **three numbers have the same frequency**.
+
+If we used:
+
+```jsx
+bucket[freq] = num;
+```
+
+then we'd get:
+
+```
+bucket[2] = 1
+bucket[2] = 2   // 1 lost
+bucket[2] = 3   // 2 lost
+```
+
+Only the last value would remain.
+
+That's why we use:
+
+```jsx
+bucket[freq].push(num);
+```
+
+so the bucket stores **all numbers** having that frequency.
+
+---
+
+### Then this loop
+
+```jsx
+for (let freq = bucket.length - 1; freq >= 0 && result.length < k; freq--) {
+
+    for (const num of bucket[freq]) {
+
+        result.push(num);
+
+        if (result.length === k) {
+            return result;
+        }
+    }
+}
+```
+
+works like this:
+
+```
+bucket[5] → []
+bucket[4] → []
+bucket[3] → []
+bucket[2] → [1,2,3]   ← highest frequency
+bucket[1] → [4]
+```
+
+If `k = 2`:
+
+```
+result = []
+
+Take 1
+result = [1]
+
+Take 2
+result = [1,2]
+
+Done
+```
+
+We stop immediately.
+
+---
+
+### ⭐ Another way to think about Bucket Sort
+
+Instead of thinking:
+
+> "For each number, what is its frequency?"
+> 
+
+Think:
+
+> "For each frequency, which numbers belong here?"
+> 
+
+So the structure becomes:
+
+```
+Frequency 1 → [4]
+
+Frequency 2 → [1,2,3]
+
+Frequency 3 → []
+
+Frequency 4 → []
+```
+
+This is why it's called a **bucket**—each bucket groups together all elements with the same frequency.
+
+---
+
+### 💡 Interview Tip
+
+This is a very common pattern:
+
+- **HashMap** → maps **element → frequency**
+- **Bucket** → maps **frequency → list of elements**
+
+You're essentially **reversing the mapping**.
+
+```
+HashMap:
+Element  → Frequency
+
+Bucket:
+Frequency → Elements
+```
+
+That "reverse mapping" is the key insight behind Bucket Sort. Once you see that, the algorithm becomes much easier to derive instead of memorize.
+
+#### Here are the **three most common approaches**.
 
 ---
 
