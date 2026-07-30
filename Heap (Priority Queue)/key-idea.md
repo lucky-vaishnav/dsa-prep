@@ -1,7 +1,3 @@
----
-
-# Heap (Priority Queue)
-
 ## 1. What is a Heap?
 
 A Heap is a special data structure that always keeps either:
