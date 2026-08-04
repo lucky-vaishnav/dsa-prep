@@ -28,11 +28,10 @@ As usual, after your answer I'll verify it and share:
 
 ---
 # My Answer -
-```text
+
 So for question number one, search in rotated sorted array. So it seems like that maybe we want to use this feature, like this rotated sorted array, to search the element in minimum time. Because for this problem, I think brute force complexity will be O of n. And, but by using this feature of rotated sorted array, I think we should use some pattern or some good idea to reduce this time. But I am not sure what will be that approach. So yeah. And one more question from my side, why can't we just use that indexOf parameter for this problem? And yeah, share that brute force code as well, optimal code as well, or any other approach, as you said earlier.
-```
 
-
+---
 You correctly recognized that the problem is asking us to use the **sorted property** to do better than `O(n)`, but you missed identifying the exact pattern.
 
 ---
@@ -225,4 +224,3 @@ This problem introduces a **new Binary Search pattern**:
 
 > **Modified Binary Search on Rotated Sorted Arrays**
 
-gether and then move on to the code.
