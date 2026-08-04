@@ -1,12 +1,3 @@
-Perfect! We'll continue with our format.
-
-* ✅ **Q1 = Revision**
-* ✅ **Q2 = New (Heap)**
-
----
-
-# 🟢 Q1 (Revision)
-
 ## Problem: Search in Rotated Sorted Array (LeetCode 33)
 
 Example:
