@@ -248,4 +248,60 @@ From tomorrow onward, let's start the **Binary Search pattern**. You've now cove
 
 Binary Search is the next major pattern, and many interview questions build on it. After Binary Search, learning **Merge Sort + Quick Sort + Quick Select** will be much easier because they naturally connect.
 
+# Question
+So for the problem which we did that k frequency most element from an array. So it seems like bucket sort is the better one than heap sort, right? Just wanted to confirm it because bucket sort has a time of n, and heap sort have a time complexity of n log k, right? And better will be quick select, but we will run it later after binary search, as you said. But for this particular problem, we can say that bucket sort is a right approach. And when will be the right approach, the heap sort.
+
+Yes, your understanding is correct. 👍
+
+For **Top K Frequent Elements**:
+
+* ✅ **Bucket Sort** is the **best solution** among the approaches we've learned so far.
+
+  * **Time:** `O(n)`
+  * **Space:** `O(n)`
+
+* ✅ **Min Heap** is `O(n log k)`, so it is slower for this specific problem.
+
+---
+
+## Then when is Min Heap the better choice?
+
+Use a **Min Heap** when:
+
+1. **You cannot use Bucket Sort**
+
+   * Frequencies/values are not naturally bounded by `n`.
+   * Creating buckets would waste a lot of memory.
+
+2. **The data is streaming**
+
+   * Numbers arrive one by one.
+   * You want to keep only the **Top K** at any time.
+   * Bucket Sort requires seeing the entire input first.
+
+3. **K is much smaller than N**
+
+   * Example:
+
+     ```text
+     n = 10,000,000
+     k = 10
+     ```
+   * A heap of size 10 is very efficient.
+
+---
+
+## Simple rule for interviews
+
+* **Bucket Sort** → When frequency ranges from **1 to n** (like this problem).
+* **Min Heap** → General-purpose **Top K** problems, especially when **K is small** or data arrives continuously.
+* **Quick Select** → Best average time when you only need the Kth/Top K once on a static array (we'll learn it later).
+
+So for **LeetCode 347 (Top K Frequent Elements)**:
+
+🥇 Bucket Sort
+🥈 Min Heap
+🥉 Sorting
+
+Your comparison is exactly the kind of reasoning interviewers like to hear.
 
