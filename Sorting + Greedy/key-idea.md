@@ -255,3 +255,199 @@ Recognition clues:
 * Need to combine or minimize intervals
 
 ---
+
+> **Greedy is NOT an algorithm like Binary Search or Heap.**
+>
+> It is a **problem-solving strategy (pattern)**.
+
+---
+
+## What is Greedy?
+
+Greedy means:
+
+> **At every step, make the best decision you can right now, hoping it leads to the overall best solution.**
+
+There is **no fixed code template**.
+
+Instead, every Greedy problem has its own implementation.
+
+---
+
+## Examples
+
+### Merge Intervals
+
+Current interval:
+
+```text
+[1,6]
+```
+
+Next interval:
+
+```text
+[4,8]
+```
+
+Greedy decision:
+
+> "They overlap. Merge them immediately."
+
+You don't delay the decision.
+
+---
+
+### Jump Game
+
+At every index:
+
+> "What's the farthest I can reach?"
+
+Always take the farthest reachable position.
+
+That's the greedy decision.
+
+---
+
+### Best Time to Buy and Sell Stock II
+
+Whenever:
+
+```text
+Today's price < Tomorrow's price
+```
+
+Greedy decision:
+
+> Buy today, sell tomorrow.
+
+---
+
+### Assign Cookies
+
+One child needs:
+
+```text
+5
+```
+
+Cookies:
+
+```text
+3,5,7
+```
+
+Greedy decision:
+
+> Give the smallest cookie that satisfies the child.
+
+---
+
+## Compare with other patterns
+
+### Binary Search
+
+Has a fixed template:
+
+```javascript
+while (left <= right) {
+    ...
+}
+```
+
+---
+
+### Sliding Window
+
+Has a fixed template:
+
+```javascript
+expand
+
+shrink
+
+expand
+
+shrink
+```
+
+---
+
+### Heap
+
+Has a fixed data structure and operations.
+
+---
+
+### Greedy
+
+❌ No fixed template.
+
+Every problem asks:
+
+> **"What is the best local decision?"**
+
+Then you prove that making that decision every time leads to the global optimum.
+
+---
+
+# How to recognize a Greedy problem?
+
+Ask yourself:
+
+* Can I make the **best decision right now**?
+* Do I **never need to revisit** that decision?
+* Once I make the decision, can I safely move forward?
+
+If the answer is yes, it's often Greedy.
+
+---
+
+# Merge Intervals
+
+Why is it Greedy?
+
+Suppose you've sorted the intervals.
+
+Current merged interval:
+
+```text
+[1,6]
+```
+
+Next interval:
+
+```text
+[4,8]
+```
+
+There is **never a benefit** in waiting.
+
+The best decision is:
+
+```text
+Merge now → [1,8]
+```
+
+Then move on.
+
+That's why it's called a **Sorting + Greedy** solution.
+
+---
+
+## ⭐ Notes
+
+```
+Greedy is not an algorithm.
+
+Greedy is a strategy:
+
+"Make the best local decision at every step."
+
+Unlike Binary Search or Sliding Window, Greedy has no fixed code template.
+
+The implementation depends on the problem.
+```
+
+This is an important concept because you'll encounter Greedy in many classic interview questions like Merge Intervals, Jump Game, Gas Station, Task Scheduler, Meeting Rooms, and Interval Scheduling. Once you've solved a few of these, recognizing the Greedy pattern becomes much easier.
