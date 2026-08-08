@@ -1,3 +1,11 @@
+This problem belong to the same Binary Search pattern but
+
+ new pattern is:
+
+Binary Search on Answer
+
+This is one of the most important Binary Search interview patterns.
+
 ## Problem: Koko Eating Bananas (LeetCode 875)
 Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
 
