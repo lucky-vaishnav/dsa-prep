@@ -161,6 +161,75 @@ Different validation function.
 
 This is the key thing to remember—not the exact code.
 
+---
+### Question
+For last problem, the koko eating the elements, so we started with the left equal to one for the net problem, right? So can't we just increase that left value according to the seed input, problem input? We can take the minimum value from that input because we know that that at least we can start with, or no?
+
+You **can**, but `min(piles)` is not a safe lower bound.
+
+For Koko, the minimum possible speed is **always `1`**, because she can eat at least 1 banana/hour.
+
+Example:
+
+```text
+piles = [1, 100]
+h = 100
+```
+
+`min(piles) = 1` → fine.
+
+But:
+
+```text
+piles = [5, 6, 7]
+h = 100
+```
+
+`min(piles) = 5`, but the actual answer can be **1** because Koko has plenty of hours.
+
+So:
+
+```javascript
+left = 1;
+```
+
+is the correct general lower bound.
+
+You **could** optimize the lower bound using `Math.ceil(totalBananas / h)`, because the average required rate cannot be lower than that, but `1` keeps the standard solution simple.
+
+### Question
+Then why don't we apply this same logic on that container shipping problem? Left equal to the minimum, because we have the similar like hours, we can have too many days, lots of days, plenty of days.
+
+Exactly — **the same “plenty of days” logic does apply**, but there is one important difference in what the lower bound represents.
+
+For shipping, we **cannot start at `1`**, because a single package might weigh `10`. A capacity of `1` can never ship that package.
+
+So the minimum possible capacity is:
+
+```javascript
+left = Math.max(...weights);
+```
+
+Example:
+
+```text
+weights = [1, 2, 3, 4, 5]
+```
+
+Even if `days = 100`, capacity **1** cannot ship the package weighing `5`.
+
+So:
+
+```text
+Koko:
+minimum speed = 1
+
+Shipping:
+minimum capacity = heaviest package
+```
+
+The **number of days being large doesn't change the fact that one package must fit inside the ship's capacity**.
+
 
 Let's see your approach first, then we'll discuss and compare the solutions.
 
