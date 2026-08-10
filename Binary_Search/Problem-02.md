@@ -231,27 +231,72 @@ Space: O(1)
 ✅ Correct.
 
 ---
+when `mid` is not a peak, we don't need to inspect both sides and decide independently. We can use the **slope/direction**:
 
-# Optimal Code
+* If `nums[mid] < nums[mid + 1]` → a peak **must exist on the right**.
+* Otherwise → a peak **exists on the left side (including `mid`)**.
 
-```jsx
+### Brute Force — O(n)
+
+```javascript
 function findPeakElement(nums) {
-  let left = 0;
-  let right = nums.length - 1;
 
-  while (left < right) {
-    const mid = Math.floor((left + right) / 2);
+    for (let i = 0; i < nums.length; i++) {
 
-    if (nums[mid] > nums[mid + 1]) {
-      right = mid;
-    } else {
-      left = mid + 1;
+        const left = i === 0 ? -Infinity : nums[i - 1];
+        const right = i === nums.length - 1 ? -Infinity : nums[i + 1];
+
+        if (nums[i] > left && nums[i] > right) {
+            return i;
+        }
     }
-  }
 
-  return left;
+    return -1;
 }
 ```
+
+### Optimal — Modified Binary Search — O(log n)
+
+```javascript
+function findPeakElement(nums) {
+
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left < right) {
+
+        const mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] < nums[mid + 1]) {
+
+            // Increasing → peak is on the right
+            left = mid + 1;
+
+        } else {
+
+            // Decreasing → peak is on the left, including mid
+            right = mid;
+        }
+    }
+
+    return left;
+}
+```
+
+### ⭐ Key idea for your notes
+
+```text
+nums[mid] < nums[mid + 1]
+        ↓
+go RIGHT
+
+nums[mid] > nums[mid + 1]
+        ↓
+go LEFT
+```
+
+You don't actually need to explicitly check whether `mid` is a peak. The binary-search movement naturally converges on one.
+
 
 ---
 
