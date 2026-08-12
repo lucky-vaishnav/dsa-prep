@@ -147,9 +147,8 @@ So this is a very useful **modified Binary Search pattern**:
 **when you find the target, don't stop — continue searching toward the required boundary.**
 
 ## Question -
-```
 So is it the only best solution for it with respect to the time complexity? Because we are using two binary search here, so it is not a problem, right? So it is the best solution from all the patterns for this problem, right, that I can consider, or no?
-```
+
 Yes. For this problem, **two binary searches are the optimal approach**.
 
 * Brute force → `O(n)`
