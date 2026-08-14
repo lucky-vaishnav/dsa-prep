@@ -166,3 +166,101 @@ This guarantees every consecutive sequence is counted exactly once.
 ```
 
 This is the single most important idea of the problem. If you remember just this one line, you'll always be able to derive the solution instead of memorizing it.
+
+---
+### Question- For HashSet approach time complexitiy - Why isn't it O(n²)?
+
+Your concern is very common here. The key is that **the `while` loop does not run `O(n)` times for every element**.
+
+Suppose:
+
+```text
+nums = [100, 4, 200, 1, 3, 2]
+```
+
+We put everything into a `Set`:
+
+```text
+{100, 4, 200, 1, 3, 2}
+```
+
+Then:
+
+```javascript
+for (const num of nums) {
+    if (!set.has(num - 1)) {
+
+        let current = num;
+
+        while (set.has(current + 1)) {
+            current++;
+        }
+    }
+}
+```
+
+### Why isn't it O(n²)?
+
+Because the `while` loop only starts for the **beginning of a sequence**.
+
+For:
+
+```text
+1, 2, 3, 4
+```
+
+When we reach `1`:
+
+```text
+1 → 2 → 3 → 4
+```
+
+The `while` loop does 3 iterations.
+
+But when we later reach:
+
+```text
+2
+```
+
+we check:
+
+```text
+set.has(1) → true
+```
+
+So `2` is **not a sequence starting point**.
+
+Same for `3` and `4`.
+
+Therefore, that sequence is traversed only **once**.
+
+### The important amortized-analysis idea
+
+Across the entire algorithm, each element participates in the consecutive-chain traversal at most once.
+
+So:
+
+```text
+Outer for loop       → O(n)
+All while iterations → O(n) total
+Set operations       → O(1) average
+--------------------------------
+Total                → O(n)
+```
+
+Therefore:
+
+**HashSet approach = `O(n)` average time, `O(n)` space.**
+
+Your `O(n × d)` reasoning would be correct **if the `while` loop could traverse the same sequence repeatedly for every element**. The `num - 1` check is precisely what prevents that.
+
+And yes, this is why the HashSet solution is better than sorting:
+
+```text
+Sorting approach → O(n log n)
+HashSet approach → O(n) average
+```
+
+⭐ **This is a very important DSA concept: amortized analysis.** A nested loop does **not automatically mean `O(n²)`**; you need to look at the **total number of iterations across the whole algorithm**.
+
