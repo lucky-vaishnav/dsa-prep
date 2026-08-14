@@ -264,3 +264,11 @@ HashSet approach → O(n) average
 
 ⭐ **This is a very important DSA concept: amortized analysis.** A nested loop does **not automatically mean `O(n²)`**; you need to look at the **total number of iterations across the whole algorithm**.
 
+----
+### Question -  what time complexity of creating new set from an array?
+
+const myArray = [1, 2, 2, 3];
+const mySet = new Set(myArray); // O(N) time
+
+
+
