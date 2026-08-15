@@ -66,10 +66,12 @@ function productExceptSelf(nums) {
 
 console.log(productExceptSelf([1, 2, 3, 4])); // [24,12,8,6]
 ```
+```
 Time  → O(n)
 Space → O(1) auxiliary
         O(n) including the output array
         for interviews: the output array doesn't usually count as auxiliary space.
+```
 ---
 
 ## Another Approach (Using Two Extra Arrays)
