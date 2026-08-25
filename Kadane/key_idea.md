@@ -132,25 +132,21 @@ Extend Previous
 
 ### Template
 
-```
-functionkadane(nums) {
-letcurrentSum=nums[0];
-letmaxSum=nums[0];
+```javascript
+function kadane(nums) {
+let currentSum=nums[0];
+let maxSum=nums[0];
 
-for (leti=1;i<nums.length;i++) {
+for (let i=1;i<nums.length;i++) {
 
-currentSum=Math.max(
-nums[i],
-currentSum+nums[i]
-        );
+currentSum = Math.max(
+            nums[i], currentSum+nums[i] );
 
-maxSum=Math.max(
-maxSum,
-currentSum
-        );
-    }
+maxSum = Math.max(
+          maxSum, currentSum);
+}
 
-returnmaxSum;
+return maxSum;
 }
 ```
 
