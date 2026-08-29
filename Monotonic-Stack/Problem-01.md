@@ -1,5 +1,5 @@
 ## Problem: Next Greater Element I
-
+https://leetcode.com/problems/next-greater-element-i/
 Given:
 
 ```
@@ -150,7 +150,8 @@ function nextGreaterElement(nums1, nums2) {
     result.push(map.get(num));
   }
 
-  return result;
+  return result;           //OR do not create new array result ,do this ->return nums1.map(num => map.get(num));
+
 }
 
 console.log(nextGreaterElement([4, 1, 2], [1, 3, 4, 2]));
