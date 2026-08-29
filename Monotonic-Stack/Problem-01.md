@@ -7,7 +7,7 @@ nums1 = [4,1,2]
 nums2 = [1,3,4,2]
 ```
 
-For every element in `nums1`, find its **next greater element** in `nums2`.
+For every element in `nums1`, find its **next greater element** in `nums2`.where nums1 is a subset of nums2.
 
 If none exists, return `-1`.
 
