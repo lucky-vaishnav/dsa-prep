@@ -120,8 +120,9 @@ function largestRectangleArea(heights) {
 
     for (let i = 0; i <= heights.length; i++) {
 
+// this logic used to handle the case where element are laready in increasing order in problem(1,2,3,4,5,6,7), using i<=heights.length in for loop is also part or this logic
         const currentHeight =
-            i === heights.length ? 0 : heights[i];  // this logic used to handle the case where element are laready in increasing order in problem(1,2,3,4,5,6,7), using i<=heights.length in for loop is also part or this logic
+            i === heights.length ? 0 : heights[i];  
 
         while (
             stack.length > 0 &&
