@@ -1,5 +1,5 @@
 ### 🔵 Q — : Largest Rectangle in Histogram
-
+https://leetcode.com/problems/largest-rectangle-in-histogram/
 ```text
 heights = [2, 1, 5, 6, 2, 3]
 
