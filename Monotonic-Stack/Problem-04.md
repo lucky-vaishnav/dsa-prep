@@ -76,7 +76,7 @@ so:
 
 A straightforward brute-force version is: for every starting index, keep extending the rectangle and maintain the minimum height.
 
-```javascript id="br7q2m"
+```javascript
 function largestRectangleArea(heights) {
     let maxArea = 0;
 
@@ -113,7 +113,7 @@ Space → O(1)
 
 ## Optimal — Monotonic Increasing Stack
 
-```javascript id="k8p4tx"
+```javascript 
 function largestRectangleArea(heights) {
     const stack = [];
     let maxArea = 0;
