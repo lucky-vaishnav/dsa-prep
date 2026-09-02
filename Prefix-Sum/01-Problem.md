@@ -104,3 +104,34 @@ A prefix sum can occur multiple times. Each previous occurrence can represent a 
 **Pattern:** `Prefix Sum + HashMap`
 **Time:** `O(n)`
 **Space:** `O(n)`
+
+Yes — your understanding of **Subarray Sum Equals K** is correct.
+
+### Review
+
+Key points:
+
+* **Sliding window doesn't work reliably** because negative numbers destroy the monotonic behavior of the sum. Removing/shrinking from the left can make the sum **increase**, so we can't safely decide which direction to move.
+* **Prefix sum** = the cumulative sum from the beginning up to the current index.
+* The HashMap stores:
+  **`prefixSum → frequency/count`**
+* The same prefix sum can occur multiple times, which is exactly why we store a **count**, not just whether it exists.
+* Complexity:
+
+  * Time: **O(n)**
+  * Space: **O(n)**
+
+One important piece to make your explanation interview-ready:
+
+If the current prefix sum is `S`, we want a previous prefix sum of:
+
+**`S - k`**
+
+because:
+
+`S - previousPrefix = k`
+
+So whenever `prefixMap` contains `S - k`, its frequency tells us **how many subarrays ending at the current index have sum k**.
+
+For example, with `[1,2,3,-2,2]`, `k = 3`, the answer is **4**.
+
