@@ -1,4 +1,4 @@
-### 🟢 Q- Subarray Sum Equals K
+### 🟢 Q- count of Subarrays - Sum Equals K
 
 Let's test whether the **Prefix Sum + HashMap** idea has actually stuck.
 
