@@ -1,7 +1,7 @@
 Given an array:
 
 ```
-nums = [2,3,1,2,4,3]
+nums = [2,3,1,2,4,3] // negative values not part of this problem .If we want to practice the negative-number version, I'll introduce Monotonic Deque + Prefix Sum
 target = 7
 ```
 
