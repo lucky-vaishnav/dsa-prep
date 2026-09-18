@@ -9,6 +9,11 @@ target = 9
 
 Return the indices of the two numbers such that they add up to target.
 
+Assume:
+Exactly one valid pair exists.
+You cannot use the same element twice.
+Return the indices in any order.
+
 Output:
 
 ```
