@@ -21,8 +21,6 @@ For the example, don't just give the answer. Explain:
 3. Why you don't need to compare every pair.
 4. Time and space complexity.
 
-**Don't code yet.**
-
 ---
 #### My Thoughts That Time:
 Q1
