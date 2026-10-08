@@ -39,7 +39,7 @@ Before coding, explain:
 4.  What do you remove from the back?   larger values
 5.  Where is the minimum located? at front
 6.  Complexity? time o(n), space -0(k)
-7. also share code for this problem for my notes
+
 ---
 Exactly right.
 
