@@ -29,8 +29,6 @@ This is a useful variation of the prefix-sum pattern rather than another sliding
 
 ---
 #### My Thoughts-
-Q2
-
 1. What will you store in the HashMap? - earliest index of prefixSum
 2.  Why should we store the **earliest index**? - to achive contiguous subarray   
 3.  What condition will you check? currentPrefixSum-k exists in hashMap
@@ -43,7 +41,7 @@ You've identified the key pieces of the solution.
 
 One refinement: we store the earliest index for each prefix sum because it gives us the longest possible subarray when that prefix sum is encountered again.
 
-## Q2 — Longest Subarray With Sum Exactly K
+## Longest Subarray With Sum Exactly K
 
 JavaScript solution
 
