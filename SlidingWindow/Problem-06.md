@@ -78,6 +78,35 @@ function maxSumSubarray(nums, k) {
 }
 ```
 
+### Another Approach
+
+```JavaScript
+function maxSubarraySum(nums, k) {
+    let windowSum = 0;
+    let maxSum = -Infinity;
+    let left = 0;
+
+    for (let right = 0; right < nums.length; right++) {
+        // Add the new element
+        windowSum += nums[right];
+
+        // Once the window reaches size k
+        if (right >= k - 1) {
+            maxSum = Math.max(maxSum, windowSum);
+
+            // Remove the outgoing element
+            windowSum -= nums[left];
+            left++;
+        }
+    }
+
+    return maxSum;
+}
+
+console.log(maxSubarraySum([3, 1, 4, 1, 5, 9, 2, 6], 3));
+// Output: 17
+```
+
 For:
 
 ```text
