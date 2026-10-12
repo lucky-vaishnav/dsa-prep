@@ -135,3 +135,101 @@ So whenever `prefixMap` contains `S - k`, its frequency tells us **how many suba
 
 For example, with `[1,2,3,-2,2]`, `k = 3`, the answer is **4**.
 
+---
+## Why check the required prefix sum before updating the map?
+
+Suppose the current prefix sum is `prefixSum`. We need to find how many previous prefix sums equal:
+
+requiredPrefix=prefixSum−k\text{requiredPrefix}=\text{prefixSum}-krequiredPrefix=prefixSum−k
+
+Because if
+
+prefixSum−previousPrefix=k\text{prefixSum}-\text{previousPrefix}=kprefixSum−previousPrefix=k
+
+then the subarray between those two prefix positions has sum `k`.
+
+### Example: `nums = [3]`, `k = 3`
+
+Initially:
+
+JavaScript
+
+```
+prefixMap = new Map([[0, 1]]);
+prefixSum = 0;
+count = 0;
+```
+
+We process the element `3`.
+
+Step 1: Update the prefix sum
+
+JavaScript
+
+```
+prefixSum = 3;
+```
+
+Step 2: Check the required prefix sum
+
+JavaScript
+
+```
+requiredPrefix = prefixSum - k; // 3 - 3 = 0
+count += prefixMap.get(0) || 0; // count = 1
+```
+
+The initial prefix sum `0` represents the position before the array begins. It allows us to count `[3]` as a valid subarray.
+
+Step 3: Update the map
+
+JavaScript
+
+```
+prefixMap.set(3, (prefixMap.get(3) || 0) + 1);
+```
+
+The answer is `1`.
+
+### What if we update the map first?
+
+Consider the same example, but imagine we update the map with the current prefix sum before checking.
+
+For this particular input, the answer happens to remain correct because the current prefix sum is `3`, while the required prefix sum is `0`.
+
+But consider `nums = [0]`, `k = 0`.
+
+* Initially, the map contains `0 → 1`.
+
+* The current prefix sum is `0`.
+
+* If we update the map first, its frequency becomes `0 → 2`.
+
+* Then we look up the required prefix sum, which is also `0`.
+
+* We add `2` to the count, incorrectly counting two subarrays instead of one.
+
+Why? One occurrence of prefix sum `0` represents the position before the array, and the other represents the position after the current element. Using the current occurrence to count a subarray would effectively count an empty subarray, which is invalid.
+
+## The rule to remember
+
+First query the map using `prefixSum - k`; then record the current prefix sum.
+
+JavaScript
+
+```
+prefixSum += nums[i];
+
+count += prefixMap.get(prefixSum - k) || 0;
+
+prefixMap.set(
+  prefixSum,
+  (prefixMap.get(prefixSum) || 0) + 1
+);
+```
+
+The order ensures that you count only subarrays ending at the current index that begin at an earlier prefix position—not an empty subarray formed by the current prefix itself.
+
+Interview takeaway: Query first, update second. This is especially important when `k = 0` or when the current prefix sum equals the required prefix sum.
+
+
