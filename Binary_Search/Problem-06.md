@@ -145,3 +145,68 @@ Goal → find minimum valid answer
 
 And importantly, **we don't need to sort the array**. We only need `max(piles)` to establish the search range.
 
+---
+#### why the answer is left and not the mid(speed)?
+Imagine we are searching for the minimum speed that lets Koko finish eating within 8 hours.
+
+Our possible speeds are `1, 2, 3, 4, 5, ... 11`.
+
+Some speeds are too slow, and some are fast enough.
+
+## Think of it like this
+
+Possible speeds
+<img width="1015" height="215" alt="Screenshot 2026-10-13 134614" src="https://github.com/user-attachments/assets/60b481cd-a326-4a71-b691-418697c8bf2d" />
+
+
+Speed 4 is the first speed that works. Speeds 5–11 also work, but they are unnecessarily fast.
+
+Our goal is not to find any speed that works. We want the smallest speed that works.
+
+## Now, what does the binary search do?
+
+Suppose eventually we reach this situation:
+
+```
+left = 4;
+right = 5;
+```
+
+The midpoint is:
+
+```
+mid = Math.floor((4 + 5) / 2); // 4
+```
+
+We test speed `4`.
+
+- Speed `4` works.
+- Therefore, the answer could be `4`.
+- We set `right = mid`, so `right = 4`.
+
+Now we have:
+
+```
+left = 4;
+right = 4;
+```
+
+The search is finished.
+
+Why? Because there is only one candidate left: speed `4`.
+
+We return `left`, which is `4`.
+
+## Here's the most important distinction
+
+- `mid` is a temporary value we use to test a speed.
+- `left` and `right` are the boundaries of the remaining search range.
+- When the loop finishes, `left` and `right` are equal, so either one gives the answer.
+
+You could even write:
+
+```
+return right;
+```
+
+and it would work with this exact binary-search template.
