@@ -38,7 +38,7 @@ The key difference from ordinary Kadane: negative numbers can reverse which prod
 
 ## JavaScript solution
 
-```
+```javascript
 
 function maxProduct(nums) {
     let maxEnding = nums[0];
